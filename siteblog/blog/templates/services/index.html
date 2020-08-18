@@ -1,0 +1,360 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="page_title ls s-py-50 corner-title ls invise overflow-visible">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center">
+                            {% for item in service_item %}
+                                <h1>{{item.title}}</h1>
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="{%url 'home'%}" >Главная</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+										{% for items in item.category.all %}
+                                        <a href="{%url 'home'%}{{items.slug}}">{{items.title}}</a>
+										{%endfor%}
+                                    </li>
+                                    <li class="breadcrumb-item active">
+                                        {{item.title}}
+                                    </li>
+                                </ol>
+                            {%endfor%}
+							<div class="divider-15 d-none d-xl-block"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+			<section class="ls s-pt-50  s-pb-100 c-gutter-60 gallery-item2">
+				<div class="d-none d-lg-block divider-60"></div>
+				<div class="container pb-5">
+					<div class="row">
+						<main class="col-lg-7 col-xl-8">
+							<div class="vertical-item">
+								<div class="item-media">
+									<div class="owl-carousel" data-margin="0" data-responsive-lg="1" data-responsive-md="1" data-responsive-sm="1" data-responsive-xs="1" data-nav="true" data-dots="false">
+                                        {%for item in slider%}
+                                            <a href="{{item.photo.url}}"  class="photoswipe-link" data-width="1170" data-height="780">
+                                                <img src="{{item.photo.url}}"  alt="">
+                                            </a>
+                                        {%endfor%}
+									</div>
+								</div>
+								<div class="item-content">
+									 {%for item in service%}{{item.content|safe}}{%endfor%}
+								</div>
+							</div>
+
+
+						</main>
+
+							<aside class="col-lg-5 col-xl-4">
+								{%for item in service_item%}
+									<div class="widget widget_project_info">
+										<h6>Project Info</h6>
+										<table class="table border-bottom">
+											<tbody>
+												<tr>
+													<td>Срок</td>
+													<td>{{item.time}}</td>
+												</tr>
+												<tr>
+													<td>Стоимость</td>
+													<td>{{item.money}}</td>
+												</tr>
+
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								{%endfor%}
+								<div class="widget widget_service">
+									<h6>Services</h6>
+									<ul class="list1">
+										{%for item in benefit%}
+										<li>{{item.text}}</li>
+										{%endfor%}
+									</ul>
+								</div>
+							</aside>
+					</div>
+				</div>
+			</section>
+
+			<section class="ls s-pt-30 s-pb-130 s-pt-lg-50 s-pb-lg-100 pricing-page">
+				<div class="container">
+					<div class="row c-mb-50">
+						<div class="divider-40 d-none d-xl-block"></div>
+						<div class="col-lg-4 col-md-12">
+
+							<div class="pricing-plan color1 ls ms">
+								<div class="plan-name">
+									<h3>
+										Startup Plan
+									</h3>
+								</div>
+								<div class="price-wrap color-darkgrey">
+									<span class="plan-sign">$</span>
+									<span class="plan-price">49</span>
+									<span class="plan-decimals">.95</span>
+								</div>
+								<div class="plan-description color-darkgrey">
+									Starting Business
+								</div>
+								<div class="plan-features">
+									<ul class="list-bordered">
+										<li>Lorem ipsum dolor</li>
+										<li>Consetetur sadipscing</li>
+										<li>Sed diam nonumy</li>
+										<li>Eirmod tempor</li>
+										<li>Invidunt laboret dolore</li>
+									</ul>
+								</div>
+								<div class="plan-button">
+									<a href="#" class="btn inverse-color1">get started</a>
+								</div>
+							</div>
+
+						</div>
+
+
+						<div class="col-lg-4 col-md-12">
+
+							<div class="pricing-plan plan-featured color2">
+								<div class="plan-name">
+									<h3>
+										Business Plan
+									</h3>
+								</div>
+								<div class="price-wrap color-light">
+									<span class="plan-sign">$</span>
+									<span class="plan-price">99</span>
+									<span class="plan-decimals">.95</span>
+								</div>
+								<div class="plan-description color-light">
+									For Any Business
+								</div>
+								<div class="plan-features">
+									<ul class="list-bordered">
+										<li>Magna aliquyam erat</li>
+										<li>Sed diam voluptua</li>
+										<li>At vero eos et accusam</li>
+										<li>Justo duo dolores</li>
+										<li>Stet clita kasd gubergren</li>
+										<li>No sea takimata</li>
+									</ul>
+								</div>
+								<div class="plan-button">
+									<a href="#" class="btn inverse-color2">get started</a>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="col-lg-4 col-md-12 mx-sm-auto">
+
+							<div class="pricing-plan color3 ls ms">
+								<div class="plan-name">
+									<h3>
+										Expert Plan
+									</h3>
+								</div>
+								<div class="price-wrap color-darkgrey">
+									<span class="plan-sign">$</span>
+									<span class="plan-price">199</span>
+									<span class="plan-decimals">.95</span>
+								</div>
+								<div class="plan-description color-darkgrey">
+									Higher Business
+								</div>
+								<div class="plan-features">
+									<ul class="list-bordered">
+										<li>Sanctus est ipsum</li>
+										<li>Dolor sit amet lorem ipsum</li>
+										<li>Dolor amet consetetur</li>
+										<li>Sadipscing elitr</li>
+										<li>Diam nonumy eirmod</li>
+									</ul>
+								</div>
+								<div class="plan-button">
+									<a href="#" class="btn inverse-color3">get started</a>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="divider-80 d-none d-lg-block"></div>
+					</div>
+				</div>
+			</section>
+
+			<section class="ls s-pt-30 s-pt-lg-75 s-pb-130 contact4">
+				<div class="container pt-0">
+					<div class="row c-gutter-60">
+
+						<div class="divider-40 d-none d-xl-block"></div>
+
+						<div class="col-lg-8">
+							<form class="contact-form c-mb-20 c-gutter-15" method="post" action="http://webdesign-finder.com/">
+
+								<div class="row">
+
+									<div class="col-sm-12">
+										<h4>Contact Form</h4>
+									</div>
+								</div>
+
+								<div class="row">
+
+									<div class="col-sm-12">
+										<div class="form-group has-placeholder">
+											<label for="name">Full Name
+												<span class="required">*</span>
+											</label>
+											<input type="text" aria-required="true" size="30" value="" name="name" id="name"
+												class="form-control border-input" placeholder="Full Name">
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group has-placeholder">
+											<label for="phone">Phone
+												<span class="required">*</span>
+											</label>
+											<input  type="text" aria-required="true" size="30" value="" name="phone" id="phone"
+												class="form-control border-input" placeholder="Phone Number">
+										</div>
+									</div>
+
+								</div>
+
+								<div class="row">
+
+									<div class="col-sm-12">
+										<div class="form-group has-placeholder">
+											<label for="email">Email address
+												<span class="required">*</span>
+											</label>
+											<input type="email" aria-required="true" size="30" value="" name="email" id="email"
+												class="form-control border-input" placeholder="Email Address">
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+
+									<div class="col-sm-12">
+
+										<div class="form-group has-placeholder">
+											<label for="message">Message</label>
+											<textarea aria-required="true" rows="6" cols="45" name="message" id="message"
+												class="form-control border-input" placeholder="Your Message" style="resize:none"></textarea>
+										</div>
+									</div>
+
+								</div>
+
+								<div class="row">
+									<div class="form-group has-placeholder">
+										<button type="submit" id="contact_form_submit" name="contact_submit"
+											class="btn btn-maincolor  btn-block">Send Message
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<!--.col-* -->
+						<div class="col-lg-4">
+							<div>
+								<h4 class="header">
+									Contact Info
+								</h4>
+
+								<div class="media mb-10">
+									<div class="icon-styled color-main fs-16">
+										<i class="fa fa-map-marker"></i>
+									</div>
+
+									<div class="media-body">
+										<p>
+											2231 Sycamore, Green Bay, WI 54304
+										</p>
+									</div>
+								</div>
+
+								<div class="media mb-10">
+									<div class="icon-styled color-main fs-16">
+										<i class="fa fa-phone"></i>
+									</div>
+
+									<div class="media-body">
+										<p>
+											1-800-123-4567
+										</p>
+									</div>
+								</div>
+
+								<div class="media mb-40">
+									<div class="icon-styled color-main fs-16">
+										<i class="fa fa-pencil"></i>
+									</div>
+
+									<div class="media-body">
+										<p class="color-dark">
+											dotcreative@example.com
+										</p>
+									</div>
+								</div>
+
+								<h4>Open Hours</h4>
+
+
+								<table>
+									<tbody>
+										<tr>
+											<td>
+												<div class="icon-styled color-main fs-16">
+													<i class="fa fa-clock-o"></i>
+												</div>
+												Weekdays
+											</td>
+											<td class="color-dark">9:00-17:00</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="icon-styled color-main fs-16">
+													<i class="fa fa-clock-o"></i>
+												</div>
+												Saturday
+											</td>
+											<td class="color-dark">10:00-15:00</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="icon-styled color-main fs-16">
+													<i class="fa fa-clock-o"></i>
+												</div>
+												Sunday
+											</td>
+											<td class="color-dark">Closed</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="icon-styled color-main fs-16">
+													<i class="fa fa-clock-o"></i>
+												</div>
+												Holidays
+											</td>
+											<td class="color-dark">10:00-13:00</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!--.col-* -->
+						<div class="divider-60 d-none d-xl-block"></div>
+					</div>
+				</div>
+			</section>
+{% endblock %}

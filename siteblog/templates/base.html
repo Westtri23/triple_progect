@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+	<title>DotCreative – Web Design Agency HTML Template</title>
+	<meta charset="utf-8">
+	<!--[if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<![endif]-->
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="{% static 'css/animations.css' %}" >
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}" >
+	<link rel="stylesheet" href="{% static 'css/main.css' %}" >
+	<script src="{% static 'js/vendor/modernizr-2.6.2.min.js' %}" ></script>
+
+	<!--[if lt IE 9]>
+		<script src="{% static 'js/vendor/html5shiv.min.js' %}" ></script>
+		<script src="{% static 'js/vendor/respond.min.js' %}" ></script>
+		<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}" ></script>
+	<![endif]-->
+
+</head>
+<body>
+	<div class="preloader">
+		<div class="preloader_image"></div>
+	</div>
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<div class="widget widget_search">
+			<form method="get" class="searchform search-form" action="#">
+				<div class="form-group">
+					<input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input">
+				</div>
+				<button type="submit" class="btn">Search</button>
+			</form>
+		</div>
+	</div>
+	<div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+		<div class="fw-messages-wrap ls p-normal">
+			<!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+			<!--
+		<ul class="list-unstyled">
+			<li>Message To User</li>
+		</ul>
+		-->
+
+		</div>
+	</div>
+	<div id="canvas">
+		<div id="box_wrapper">
+			<section class="page_toplogo ls s-py-30 z-index">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-lg-12">
+
+							<div class="d-lg-flex justify-content-lg-end align-items-lg-center">
+								<div class="mr-auto">
+									<!--
+										if you want to display toplogo info on smaller screens
+										than use following CSS classes below:
+									 	d-sm-flex justify-content-sm-center
+									 -->
+									<div class="d-flex justify-content-center justify-content-lg-start">
+										<a href="{% url 'home' %}" class="logo text-center">
+											<img src="{% static 'images/logo-dark.png' %}"alt="">
+										</a>
+									</div>
+								</div>
+								<!--
+									if you want to display toplogo info on smaller screens
+									than use following CSS classes below:
+									d-sm-flex justify-lg-content-end justify-content-sm-between align-items-center
+								-->
+								<div class="d-none d-lg-flex justify-lg-content-end align-items-center">
+									<div class="media">
+										<div class="icon-styled bordered round color-main fs-20">
+											<i class="fa fa-map-marker"></i>
+										</div>
+
+										<div class="media-body">
+											<h6>
+												<strong>Open Hours</strong>
+											</h6>
+											<p>
+												Mon-Fri: 9-17; Sat: 9-20; Sun: Off
+											</p>
+										</div>
+									</div>
+
+									<div class="media">
+										<div class="icon-styled bordered round color-main fs-20">
+											<i class="fa fa-phone"></i>
+										</div>
+										<div class="media-body">
+											<h6>
+												<strong>1-800-123-4567</strong>
+											</h6>
+											<p>
+												Some Street, 123, Your City
+											</p>
+										</div>
+									</div>
+
+
+								</div>
+
+							</div>
+						</div>
+						<!--<div class="col-lg-6">-->
+
+
+						<!--</div>-->
+
+					</div>
+				</div>
+			</section>
+
+
+
+			{% include 'inc/_header.html' %}
+
+            {% block content %}{% endblock %}
+
+	          {% include 'inc/_footer.html' %}
+
+
+		</div>
+		<!-- eof #box_wrapper -->
+	</div>
+	<!-- eof #canvas -->
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script src="{% static 'js/compressed.js' %}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/4.0.9/inputmask/inputmask.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

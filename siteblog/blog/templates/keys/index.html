@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="page_title ls s-py-50 corner-title ls invise overflow-visible">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h1> Выполненные работы</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="{%url 'home'%}" >Главная</a>
+								</li>
+								<li class="breadcrumb-item active">Выполненные работы</li>
+							</ol>
+							<div class="divider-15 d-none d-xl-block"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+			<section class="ls s-pt-50 s-pb-130 container-px-0 gallery-tiled">
+				<div class="d-none d-lg-block divider-20"></div>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="row" style="transform:scale(1.3)">
+								<div class="col-md-10 col-xl-8">
+									<div class="filters gallery-filters small-text text-lg-right">
+										<a href="#" data-filter="*" class="active active-tab__button selected">Все</a>
+										{%for item in keys%}
+										{%for items in item.category.all%}
+											<a href="#" data-filter=".{{items.slug}}">{{items.title}}</a>
+										{% endfor %}
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+
+							<div class="row isotope-wrapper masonry-layout c-gutter-0" data-filters=".gallery-filters">
+
+								{%for item in keys%}
+									<div class="col-xl-4 col-sm-6 {%for items in item.category.all%} {{items.slug}}{% endfor %}">
+										<div class="vertical-item item-gallery content-absolute text-center ds">
+											<div class="item-media">
+												<img src="{{item.photo_keys.url}}"  alt="">
+												<div class="media-links">
+												</div>
+											</div>
+											<div class="item-content">
+												<h6>
+													<a class="tags small-text" href="#">{{item.description}}</a>
+													<br>
+													<a href="{{item.slug}}">{{item.title}}</a>
+												</h6>
+											</div>
+										</div>
+									</div>
+								{% endfor %}
+							</div>
+							<!-- .isotope-wrapper-->
+
+							<div class="row c-mt-30 c-mt-lg-0">
+								<div class="col-sm-12 text-center gallery-btn">
+									<a href="#" class="btn btn-maincolor">Загрузить ещё</a>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="d-none d-lg-block divider-75"></div>
+			</section>
+{% endblock %}

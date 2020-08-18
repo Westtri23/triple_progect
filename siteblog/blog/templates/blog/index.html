@@ -1,0 +1,513 @@
+{% extends 'base.html' %}
+{% load static %}
+ {% block content %}
+
+
+
+
+
+
+			<section class="page_slider main_slider  static main_slider-form--height" style="border-radius: 60vw / 5vw;border-top-left-radius:0;border-top-right-radius:0">
+
+				<div class="flexslider" data-nav="true" data-dots="false"  style="height:inherit; margin:0">
+					<ul class="slides">
+						{% for item in first_screen %}
+							<li class="ds text-center slide1 flex-active-slide" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;">
+							<span class="flexslider-overlay"></span>
+							<img src="{{ item.photo.url }}" alt="" draggable="false">
+							<div class="container position-mobile" style="height:inherit">
+								<div class="row mx-0">
+										<div class="intro_layers_wrapper row col-12">
+											<div class="intro_layers col-lg-6 col-12">
+												<div class="intro_layer animate main-slider-form__wrapper animated fadeInDown" data-animation="fadeInDown" style="visibility: hidden;">
+													<h2 class="text-uppercase text-left intro_featured_word main-slider-form__titles">
+														{{ item.title }}
+													</h2>
+												</div>
+											</div>
+										<div class="col-lg-5 col-12 offset-lg-1 px-0 offset-0 d-lg-block d-none" style="z-index:9">
+											<div class="service-form-block">
+												<p class="service-form-title">Не знаете, с чего начать?</p>
+												<form class="service-form">
+													<input type="hidden" name="act" value="seo">
+													<input class="service-form__input border-input" type="email" name="site" placeholder="Ваше имя и фамилия*" required="">
+													<input class="service-form__input border-input phone_mask" type="number" name="tel" placeholder="Номер*">
+													<div class="service-form__wrap">
+														<p class="service-form__title">Бюджет, руб:</p>
+														<div class="service-form__range-wrap">
+															<div class="main">
+																<div class="slider-container">
+																  <span class="bar">
+																	<span class="fill" style="width: 50%;"></span>
+																  </span>
+																  <input id="slider" type="range" class="slider" min="0" max="100" value="50">
+																</div>
+															  </div>
+
+															<div class="service-form__range-price from" style="opacity: 1;">15 000</div>
+															<div class="service-form__range-price center" style="opacity: 1;">45 000</div>
+															<div class="service-form__range-price to" style="opacity: 1;">380 000</div>
+														</div>
+
+													</div>
+													<div class="service-form__check-row">
+														<input class="service-form__checkbox" type="checkbox" checked="checked" name="pdn" id="service_pdn1" required="">
+														<label class="service-form__label" for="service_pdn1">Разрешаю обработку <a href="/company/personal-info/" target="_blank">персональных данных</a></label>
+													</div>
+													<button class="service-form__btn" type="submit">Узнать способ раскрутки
+													</button>
+													<p class="service-form__title service-form__percent">Ваша персональная скидка составляет <b>20%</b></p>
+													<small class="service-form__small-text">для получения скидки необходимо отправить форму</small>
+												</form>
+											</div>
+										</div>
+											<!-- eof .intro_layers -->
+										</div>
+										<!-- eof .intro_layers_wrapper -->
+									<!-- eof .col-* -->
+									<div class="flexslider-bottom d-none d-xl-block">
+										<a href="#about" class="mouse-button animated floating"></a>
+									</div>
+								</div>
+								<!-- eof .row -->
+							</div>
+							<!-- eof .container -->
+
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</section>
+
+			<div class="divider-10 d-block d-sm-none"></div>
+			<section class="s-pt-30 s-pt-lg-50 s-pt-xl-25 ls about-home" id="about">
+				<div class="divider-5 d-none d-xl-block"></div>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+							<div class="main-content text-center">
+								<div class="img-wrap text-center">
+									<img src="{% static 'img/vertical_line.png'%}"  alt="">
+									<div class="divider-35"></div>
+								</div>
+								{% for item in second_screen %}
+									<h2>{{item.title}}</h2>
+									<p>{{item.description}}</p>
+								{%endfor%}
+								<div class="divider-30"></div>
+								<div class="img-wrap text-center">
+									<img src="{% static 'img/vertical_line.png'%}"  alt="">
+								</div>
+								<div>
+									<div class="divider-40"></div>
+									<h2>Список Услуг</h2>
+									<div class="divider-40"></div>
+								</div>
+								<div class="img-wrap text-center">
+									<img src="{% static 'img/vertical_line.png'%}"  alt="">
+								</div>
+								<div class="divider-10 d-none d-xl-block"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="divider-10 d-block d-sm-none"></div>
+			</section>
+
+			<section class="s-pt-30 s-pb-3 service-item2 ls animate" id="services" data-animation="fadeInUp">
+				<div class="container">
+					<div class="row c-mb-50 c-mb-md-60">
+						<div class="d-none d-lg-block divider-20"></div>
+
+							{% for item in keys %}
+
+								<div class="col-12 col-md-6 col-lg-4">
+									<div class="vertical-item item-hover__flow-monet text-center">
+										<div class="item-media">
+											<img id="img-flow" src="{{item.services_icon.url}}"  alt="{{item.title}}">
+										</div>
+										<div class="item-content">
+											<h6><a href="{{item.slug}}" >{{item.title}}</a></h6>
+											<p>{{item.description}}</p>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+
+					</div>
+					<div class="pink-line text-center">
+						<img id="img-flow" src="{% static 'img/pink_line_big.png'%}" alt="">
+					</div>
+				</div>
+			</section>
+
+<section class="ls s-pt-50 s-pb-100 gallery-pagination gallery-regular">
+	<div class="d-none d-lg-block divider-20"></div>
+	<div class="container pb-4">
+		<h2 class="text-center mb-4 mt-2">Наши проекты</h2>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="row justify-content-center">
+					<div class="col-md-10 col-xl-8">
+						<div class="filters gallery-filters small-text text-lg-right">
+							<a href="#" data-filter="*" class="active selected">Все</a>
+							{%for item in category%}<a href="#" data-filter=".{{item.slug}}">{{item.title}}</a>{% endfor %}
+						</div>
+					</div>
+				</div>
+				<div class="row isotope-wrapper masonry-layout c-mb-30" data-filters=".gallery-filters">
+					{%for item in keys%}
+
+						<div class="col-xl-4 col-sm-6{%for item in item.category.all%} {{item.slug}}{% endfor %}">
+							<div class="vertical-item item-gallery  content-absolute gallery text-center ls">
+								<div class="item-media">
+									<img src="{{item.photo_keys_home.url}}" alt="">
+									<div class="media-links"></div>
+								</div>
+								<div class="item-content">
+									<h6>
+										<a class="tags small-text" href="">{{item.description}}</a>
+										<br>
+										<a href="{%url 'keys'%}{{item.slug}}">{{item.title}}</a>
+									</h6>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	<a href="{%url 'keys'%}" class="btn btn-maincolor d-block mx-auto mb-md-5 mb-4 col-md-2">Смотреть все работы</a>
+
+		<div class="d-none d-lg-block divider-105"></div>
+</section>
+
+			<section>
+				<div class="container">
+					<div class="content15 main-block" id="promo">
+						<h1>Подарки и скидки для наших клиентов</h1>
+						<br>
+						<div id="consult">
+							<div class="form-consult d-flex justify-content-between">
+
+								<div class="form-consult-text bg-minispots d-md-block d-none">
+									<h4>Бесплатный базовый анализ сайта<small>+ план продвижения и смета в подарок</small></h4>
+									<!--<div class="longarrow"><i>&rarr;</i></div>-->
+								</div>
+
+
+								<form class="row mx-0 form-row__prices" action="/forms/main-consult.php" target="_blank" method="post" novalidate="novalidate">
+								<p class="grey col-12">В течение 1-3 рабочих дней изучим ваш сайт и подберем услуги, максимально эффективные для его
+									продвижения в рамках выделенного бюджета.</p>
+
+									<div class="form-consult-input col-sm-6 col-12 mt-sm-4 mt-3">
+										<span class="input-placeholder">Ваш телефон *</span>
+										<input   type="text" name="phone" class="border-input with-placeholder mask-phone">
+									</div>
+									<div class="form-consult-input pull-right col-sm-6 col-12 mt-sm-4 mt-3">
+										<span class="input-placeholder">Email</span>
+										<input   type="email" name="email" class="border-input with-placeholder">
+									</div>
+
+									<div class="form-consult-input pull-right col-12 mt-sm-0 mt-2">
+										Бюджет
+										<select class="border-input" name="sum">
+											<option>Не выбран</option>
+											<option>10 000 руб./мес.</option>
+											<option>15 000 руб./мес.</option>
+											<option>20 000 руб./мес.</option>
+											<option>40 000 руб./мес.</option>
+											<option>60 000 руб./мес.</option>
+											<option>80 000 руб./мес.</option>
+											<option>100 000 руб./мес.</option>
+											<option>более 100 000 руб.</option>
+										</select>
+									</div>
+
+									<div class="form-consult-input wide col-12 mt-sm-0 mt-2">
+										<span class="input-placeholder">Комментарий</span>
+										<textarea   name="comment" class="with-placeholder border-input text-left" style="resize:none" rows="1"></textarea>
+									</div>
+
+									<div class="form-consult-input col-sm-6 col-12 mt-3">
+										<div class="custom-control custom-checkbox check-confidence small" style="margin-top: 15px;">
+											<input type="checkbox" checked="checked" class="custom-control-input" id="check_confidence" name="confidence"
+												style="position: absolute;" required="" aria-required="true">
+											<label class="custom-control-label pt-0" for="check_confidence">Разрешаю обработку <a
+													href="/company/personal-info/" target="_blank">персональных данных</a></label>
+										</div>
+									</div>
+									<div class="service-form pull-right col-sm-6 col-12 mt-4">
+										<button class="service-form__btn btn-form__prices mt-0" type="submit">Получить анализ и план</button>
+									</div>
+
+								</form>
+
+							</div>
+						</div>
+
+
+
+
+					</div>
+				</div>
+				<div class="img-wrap text-center my-5">
+					<img src="{% static 'img/vertical_line.png'%}" alt="">
+				</div>
+			</section>
+
+			<section class="s-pt-100 s-pt-lg-130 ds process-part skew_right s-parallax top_white_line_big overflow-visible" id="steps">
+				<div class="container container-no-line pt-3">
+					<div class="divider-65"></div>
+					{% for item in step_work %}
+					<h1 class="text-center steps-title" style="margin-bottom:47px">Этапы работы</h1>
+					<div class="row align-items-center c-mb-20 c-mb-lg-60">
+						<div class="col-12 col-lg-4">
+							<div class="step-left-part text-right">
+								<h2 class="step-title">
+									<span class="color-main">01</span>{{item.title}}</h2>
+							</div>
+						</div>
+						<div class="col-12 col-lg-4">
+							<div class="step-center-part text-center">
+								<img src="{{item.photo.url}}"  alt="{{item.title}}">
+							</div>
+						</div>
+						<div class="col-12 col-lg-4">
+							<div class="step-right-part">
+								<p class="step-text">{{item.description}}</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="row align-items-center right c-mb-20 c-mb-lg-60">
+						<div class="col-12 col-lg-4  order-lg-3">
+							<div class="step-left-part">
+								<h2 class="step-title color1">
+									<span class="color-main2">02</span>{{item.title2}}</h2>
+							</div>
+						</div>
+						<div class="col-12 col-lg-4 order-lg-2">
+							<div class="step-center-part text-center">
+								<img src="{{item.photo2.url}}"  alt="{{item.title2}}">
+							</div>
+						</div>
+						<div class="col-12 col-lg-4 order-lg-1 text-right">
+							<div class="step-right-part ">
+								<p class="step-text">{{item.description2}}</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="row align-items-center c-mb-20 c-mb-lg-60">
+						<div class="col-12 col-lg-4">
+							<div class="step-left-part text-right part3">
+								<h2 class="step-title">
+									<span class="color-main3">03</span>{{item.title3}}</h2>
+							</div>
+						</div>
+						<div class="col-12 col-lg-4">
+							<div class="step-center-part text-center">
+								<img src="{{item.photo3.url}}"  alt="{{item.title3}}">
+
+							</div>
+						</div>
+						<div class="col-12 col-lg-4">
+							<div class="step-right-part">
+								<p class="step-text">{{item.description3}}</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="row align-items-center right c-mb-20 c-mb-lg-60">
+						<div class="col-12 col-lg-4  order-lg-3">
+							<div class="step-left-part">
+								<h2 class="step-title color1">
+									<span class="color-main4">04</span>{{item.title4}}</h2>
+							</div>
+						</div>
+						<div class="col-12 col-lg-4 order-lg-2">
+							<div class="step-center-part text-center">
+								<img src="{{item.photo4.url}}"  alt="{{item.title4}}">
+							</div>
+						</div>
+						<div class="col-12 col-lg-4 order-lg-1 text-right">
+							<div class="step-right-part ">
+								<p class="step-text">{{item.description4}}</p>
+							</div>
+						</div>
+					</div>
+					<div class="row align-items-center c-mb-20 c-mb-lg-60">
+						<div class="col-12 col-lg-4">
+							<div class="step-left-part text-right part3">
+								<h2 class="step-title">
+									<span class="color-main3" style="color:#342ead!important">05</span>{{item.title5}}</h2>
+							</div>
+						</div>
+						<div class="col-12 col-lg-4">
+							<div class="step-center-part text-center">
+								<img src="{{item.photo5.url}}"  alt="{{item.title5}}">
+
+							</div>
+						</div>
+						<div class="col-12 col-lg-4">
+							<div class="step-right-part">
+								<p class="step-text">{{item.description5}}</p>
+							</div>
+						</div>
+					</div>
+					<div class="row align-items-center right c-mb-20 c-mb-lg-60">
+						<div class="col-12 col-lg-4  order-lg-3">
+							<div class="step-left-part part4">
+								<h2 class="step-title color1">
+									<span class="color-main4" style="color:#9818d6!important">06</span>{{item.title6}}</h2>
+							</div>
+						</div>
+						<div class="col-12 col-lg-4 order-lg-2">
+							<div class="step-center-part text-center last">
+								<img src="{{item.photo6.url}}"  alt="{{item.title6}}">
+							</div>
+						</div>
+						<div class="col-12 col-lg-4 order-lg-1 text-right">
+							<div class="step-right-part ">
+								<p class="step-text">{{item.description6}}</p>
+							</div>
+						</div>
+					</div>
+					{%endfor%}
+					<div class="divider-10 d-block d-sm-none"></div>
+					<div class="img-wrap text-center">
+						<img src="{% static 'img/vertical_line2.png'%}"alt="">
+					</div>
+					<div class=" white-button text-center">
+						<a class="btn castom-me__btn" href="#">Get Started</a>
+					</div>
+					<div class="divider-30 d-none d-xl-block"></div>
+				</div>
+			</section>
+
+			<section id="mtSectionAdaptiv" class="ls ms book-item s-pb-30 s-pb-lg-25">
+				<div class="corner corner-light"></div>
+				<div class="container pt-5">
+					<div class="row">
+						<div class="col-md-8 offset-md-2">
+							<div class="text-block text-center">
+								<div class="img-wrap text-center">
+									<img src="{% static 'img/vertical_line.png'%}"  alt="">
+									<div class="divider-35"></div>
+								</div>
+								<h5>
+									B2B Marketing & Web Design
+									<br> Resources
+								</h5>
+								<p>
+									B2B client acquisition is not the same as B2C– a B2B website, brand messaging and content marketing play a much different role. We understand the B2B marketing and sales funnel and the tactics that generate and nurture ideal client leads.
+								</p>
+								<div class="divider-30"></div>
+								<div class="img-wrap text-center">
+									<img src="{% static 'img/vertical_line.png'%}"  alt="">
+								</div>
+							</div>
+						</div>
+						<div class="divider-40"></div>
+					</div>
+				</div>
+					<div id="myContainer">
+						<div class="swiper-container swiperReturns">
+							<div class="btn-maincolor btn-maincolor-swiperReturns swiper-button-next swiper-button-next-returns d-none d-md-flex"></div>
+							<div class="btn-maincolor btn-maincolor-swiperReturns swiper-button-prev swiper-button-prev-returns d-none d-md-flex"></div>
+							<div class="swiper-wrapper">
+
+							{% for item in reviews %}
+
+								<a class="swiper-slide slide-return" href="{{item.photo.url}}" data-fancybox="gallery1">
+									<img src="{{item.photo.url}}" alt="#">
+								</a>
+
+							{% endfor %}
+
+							</div>
+						</div>
+					</div>
+					<div class="container">
+							<div class="row">
+									<div class="divider-30"></div>
+									<div class="text-center img-wrap col-md-12">
+										<div>
+											<img src="{% static 'img/vertical_line.png'%}"  alt="">
+										</div>
+										<div class="divider-40"></div>
+										<a href="#" class="btn btn-outline-maincolor">Get Started</a>
+										<div class="divider-40"></div>
+										<div>
+											<img src="{% static 'img/vertical_line.png'%}"  alt="">
+										</div>
+									</div>
+								<div class="divider-10"></div>
+							</div>
+						</div>
+					</div>
+			</section>
+
+
+			<section class="mt-0 s-pt-130 s-pb-15 s-pb-md-50 s-pt-xl-100 s-pb-lg-30 overflow-visible s-parallax testimonials-sliders main-testimonials ds" id="testimonials">
+				<div class="corner ls ms"></div>
+				<div class="divider-80 d-none d-lg-block"></div>
+				<div id="myContainer" class="py-lg-0 py-5 px-md-4 px-0">
+					<h1 class="text-center steps-title my-5">Наши клиенты</h1>
+					<div class="swiper-container swiperClients">
+						<div class="btn-maincolor swiper-button-next d-none d-md-flex"></div>
+						<div class="btn-maincolor swiper-button-prev d-none d-md-flex"></div>
+						<div class="swiper-wrapper">
+
+							{% for item in partners %}
+								<div class=" swiper-slide">
+									<img src="{{item.photo.url}}" alt="">
+								</div>
+							{%endfor %}
+
+
+						</div>
+					</div>
+					<div class="divider-75 d-none d-lg-block"></div>
+				</div>
+				<div class="testimonials-btn text-center">
+					<a href="#quote" class="btn-maincolor">
+						<i class="fa fa-angle-up"></i>
+					</a>
+				</div>
+				<div class="corner corner-light"></div>
+			</section>
+			<section class=" ls s-pt-20 s-pb-50 s-py-lg-50 faq1">
+				<div class="container">
+					<div class="row pt-md-0 pt-md-3 pt-5">
+						<div class="divider-55 d-none d-xl-block"></div>
+
+						<div class="col-lg-12 m-auto ds-collapse pt-md-0 pt-5">
+							<h1 class="text-center steps-title mb-5 mt-lg-0 mt-3">Ответы на вопросы</h1>
+
+							<div id="accordion01" class="my-5" role="tablist">
+								{% for item in questions %}
+									<div class="card pt-xl-5 pt-3 pt-0">
+										<div class="card-header" role="tab" id="collapse02_header">
+											<h5>
+												<a class="collapsed" data-toggle="collapse" href="#collapse0{{item.pk}} " aria-expanded="false" aria-controls="collapse02">{{item.answer}}</a>
+											</h5>
+										</div>
+										<div id="collapse0{{item.pk}}" class="collapse" role="tabpanel" data-parent="#accordion01">
+											<div class="card-body">{{item.questions}}</div>
+										</div>
+									</div>
+								{%endfor%}
+							</div>
+							<!-- collapse -->
+						</div>
+						<div class="divider-90 d-none d-xl-block"></div>
+					</div>
+				</div>
+			</section>
+
+{% endblock %}

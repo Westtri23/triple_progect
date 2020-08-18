@@ -1,0 +1,89 @@
+{% load static %}
+<footer class="page_footer ds s-pb-100 s-pt-100 c-gutter-60 s-parallax bordered-footer bottom-none">
+				<div class="container">
+					<div class="row">
+						<div class="divider-110 d-none d-xl-block"></div>
+
+						<div class="col-md-4 text-center animate mailchimp order-md-1 order-3" data-animation="fadeInUp">
+							<div class="widget widget_mailchimp">
+
+								<h3 class="footer-title__menu widget-title text-md-left text-center">Newsletter</h3>
+
+								<nav class="footer-nav-site">
+									<ul class="d-md-block d-flex flex-wrap justify-content-center">
+										<li ><a href="#" class="footer-nav-site__link">Главная</a></li>
+										<li ><a href="#" class="footer-nav-site__link">Наши</a></li>
+										<li ><a href="#" class="footer-nav-site__link">Портфолио</a></li>
+										<li ><a href="#" class="footer-nav-site__link">FAQ</a></li>
+										<li ><a href="#" class="footer-nav-site__link" >Главная</a></li>
+										<li ><a href="#" class="footer-nav-site__link" >Главная</a></li>
+										<li ><a href="#" class="footer-nav-site__link" >Главная</a></li>
+										<li ><a href="#" class="footer-nav-site__link" >Главная</a></li>
+										<li ><a href="#" class="footer-nav-site__link" >Главная</a></li>
+										<li ><a href="#" class="footer-nav-site__link" >Главная</a></li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+
+						<div class="col-md-4 text-center animate footer-contact order-md-2 order-2 data-animation="fadeInUp">
+							<div class="widget widget_icons_list">
+								<div class="footer_logo">
+									<a href="{% url 'home' %}">
+										<img src="{% static 'img/logo1.png' %}"  alt="">
+									</a>
+								</div>
+								<h3 class="widget-title name">Dot
+									<span>Creative</span>
+								</h3>
+								<p class="next">
+									We create experiences that change the way people interact with brands – and with each other.
+								</p>
+								<ul>
+									<li class="icon-inline">
+										<div class="icon-styled icon-top color-main fs-14">
+											<i class="fa fa-map-marker"></i>
+										</div>
+										<p>90000, New Str. 123, Los Angeles, CA</p>
+									</li>
+									<li class="icon-inline">
+										<div class="icon-styled icon-top color-main fs-14">
+											<i class="fa fa-phone"></i>
+										</div>
+										<p>1-800-123-4567</p>
+									</li>
+									<li class="icon-inline">
+										<div class="icon-styled icon-top color-main fs-14">
+											<i class="fa fa-envelope"></i>
+										</div>
+										<p>
+											<a href="#">email@example.com</a>
+										</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-4 text-center animate order-md-3 order-1" data-animation="fadeInUp">
+
+							<div class="widget widget_text">
+								<small class="text-md-left text-center d-inline-block footer-small-text">Публикация материалов на сторонних сайтах, только согласия администрации сайта</small>
+								<h6 class="text-md-left text-center">Остались вопросы? - Мы вам перезвоним!</h6>
+								<form>
+									<input type="text" placeholder="Имя и фамилия" class="border-input service-form__input mb-3 text-left px-2">
+									<input type="number" placeholder="Номер телефона" class="phone_mask border-input service-form__input mb-1 text-left px-2">
+									<div class="service-form__check-row mb-2 mt-0">
+										<input class="service-form__checkbox" type="checkbox" checked="checked" name="pdn__footer" id="service_pdn__footer" required="">
+										<label class="service-form__label footer-form__checkbox-text text-left" for="service_pdn__footer">Разрешаю обработку <a href="/company/personal-info/"
+												target="_blank">персональных данных</a></label>
+									</div>
+									<button type="submit" style="width:100%"
+										class="service-form__btn py-md-2 py-3 footer-sumbit">Отправить</button>
+								</form>
+							</div>
+						</div>
+						<div class="divider-10 d-none d-xl-block"></div>
+					</div>
+				</div>
+			</footer>
+

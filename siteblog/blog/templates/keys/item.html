@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="ls s-py-50 corner-title ls invise overflow-visible">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center">
+                            {%for item in keys_item%}
+                                <h1>{{item.title}}</h1>
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="{% url 'home'%}">Главная</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href="{% url 'keys'%}">Заверешенные работы</a>
+                                    </li>
+                                    <li class="breadcrumb-item active">{{item.title}}</li>
+                                </ol>
+                            {%endfor%}
+							<div class="divider-15 d-none d-xl-block"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+			<div class="owl-carousel" data-margin="0" data-responsive-lg="1" data-responsive-md="1" data-responsive-sm="1" data-responsive-xs="1" data-nav="true" data-dots="false">
+                 {%for item in slider%}<img src="{{item.photo.url}}"  alt="">{%endfor%}
+			</div>
+
+			<section class="ls">
+				<div class="container ">
+					<div class="row c-gutter-60">
+						<div class="divider-40 d-block"></div>
+						<div class="col-md-8 single-page">
+							<div class="item-content">
+								<div class="d-none d-lg-block divider-70"></div>
+                                     {%for item in keys_item%}{{item.content|safe}}{%endfor%}
+								<div class="d-none d-lg-block divider-40"></div>
+							</div>
+						</div>
+						<!-- .col-* -->
+
+						<div class="col-md-4 hero-bg widget-service">
+							<h6>Выбор услуги</h6>
+
+							<ul class="list">
+                                {%for item in category%}
+								<li><a href="#">{{item.title}}</a></li>
+                                {%endfor%}
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="divider-70 d-block"></div>
+			</section>
+			<section class="ls s-pt-50 s-pb-130 gallery-item">
+				<div class="container px-lg-0 px-2  pt-0 pb-5">
+					<div class="d-none d-lg-block divider-60"></div>
+					<nav class="navigation post-nav" role="navigation">
+						<div class="nav-links">
+                            {%for item in keys%}
+                                <div class="nav-previous cover-image s-overlay ds">
+                                    <div class="post-nav-image">
+                                        <img src="{{item.photo_keys.url}}" alt="">
+                                    </div>
+                                    <div class="post-nav-text-wrap">
+                                        <span aria-hidden="true" class="nav-subtitle color-main">{{item.title}}</span>
+                                        <p class="nav-title">{{item.description}}</p>
+                                    </div>
+                                    <a href="{%url 'keys'%}{{item.slug}}" ></a>
+                                </div>
+                            {%endfor%}
+						</div>
+					</nav>
+
+				</div>
+			</section>
+{% endblock %}
