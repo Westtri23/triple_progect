@@ -35,7 +35,9 @@
 									<div class="col-xl-4 col-md-6 web-design design branding">
 										<div class="vertical-item text-center ls ms">
 											<div class="item-media">
+												{%if item.photo_services%}
 												<img src="{{item.photo_services.url}}"  alt="">
+												{%endif%}
 												<div class="media-links">
 												</div>
 											</div>

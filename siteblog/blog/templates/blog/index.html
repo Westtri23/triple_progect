@@ -28,10 +28,12 @@
 										<div class="col-lg-5 col-12 offset-lg-1 px-0 offset-0 d-lg-block d-none" style="z-index:9">
 											<div class="service-form-block">
 												<p class="service-form-title">Не знаете, с чего начать?</p>
-												<form class="service-form">
-													<input type="hidden" name="act" value="seo">
-													<input class="service-form__input border-input" type="email" name="site" placeholder="Ваше имя и фамилия*" required="">
-													<input class="service-form__input border-input phone_mask" type="number" name="tel" placeholder="Номер*">
+												<form class="service-form" action="{%url 'home'%}" method="POST" >
+													{% csrf_token %}
+													{{ form.hidden }}
+													{{ form.name }}
+													{{ form.number }}
+													{{ form.as_p }}
 													<div class="service-form__wrap">
 														<p class="service-form__title">Бюджет, руб:</p>
 														<div class="service-form__range-wrap">
@@ -119,7 +121,7 @@
 					<div class="row c-mb-50 c-mb-md-60">
 						<div class="d-none d-lg-block divider-20"></div>
 
-							{% for item in keys %}
+							{% for item in category %}
 
 								<div class="col-12 col-md-6 col-lg-4">
 									<div class="vertical-item item-hover__flow-monet text-center">
@@ -403,9 +405,7 @@
 									B2B Marketing & Web Design
 									<br> Resources
 								</h5>
-								<p>
-									B2B client acquisition is not the same as B2C– a B2B website, brand messaging and content marketing play a much different role. We understand the B2B marketing and sales funnel and the tactics that generate and nurture ideal client leads.
-								</p>
+								<p>Отзывы клиентов – отличное подтверждение экспертности и профессионализма наших сотрудников. Взгляните!</p>
 								<div class="divider-30"></div>
 								<div class="img-wrap text-center">
 									<img src="{% static 'img/vertical_line.png'%}"  alt="">

@@ -42,7 +42,9 @@
 									<div class="col-xl-4 col-sm-6 {%for items in item.category.all%} {{items.slug}}{% endfor %}">
 										<div class="vertical-item item-gallery content-absolute text-center ds">
 											<div class="item-media">
+												{% if item.photo_keys%}
 												<img src="{{item.photo_keys.url}}"  alt="">
+												{%endif%]
 												<div class="media-links">
 												</div>
 											</div>

@@ -6,26 +6,32 @@ from .models import *
 
 class HomeFirstScreenInline(admin.StackedInline):
     model = HomeFirstScreen
+    extra = 0
 
 
 class HomeSecondScreenInline(admin.StackedInline):
     model = HomeSecondScreen
+    extra = 0
 
 
 class HomeStepWorkInline(admin.StackedInline):
     model = HomeStepWork
+    extra = 0
 
 
 class HomeReviewsInline(admin.StackedInline):
     model = HomeReviews
+    extra = 0
 
 
 class HomePartnersInline(admin.StackedInline):
     model = HomePartners
+    extra = 0
 
 
 class HomeQuestionsInline(admin.StackedInline):
     model = HomeQuestions
+    extra = 0
 
 
 @admin.register(HomePage)

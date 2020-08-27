@@ -1,7 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.views.generic import ListView, DetailView
-from .models import *
+from django.views.generic import ListView
+from blog.models import *
 
 
 class HomePage(ListView):
@@ -18,13 +16,13 @@ class HomePage(ListView):
         context['partners'] = HomePartners.objects.all()
         context['questions'] = HomeQuestions.objects.all()
         context['category'] = ServicesCategory.objects.all()
-        context['keys'] = KeysPage.objects.\
-            prefetch_related('category')\
-            .only('title', 'slug', 'description', 'photo_keys_home', 'category__title', 'category__slug',)
-        context['service'] = ServicesPage.objects\
-            .prefetch_related('category')\
+        context['keys'] = KeysPage.objects. \
+            prefetch_related('category') \
+            .only('title', 'slug', 'description', 'photo_keys_home', 'category__title', 'category__slug', )
+        context['service'] = ServicesPage.objects \
+            .prefetch_related('category') \
             .only('title', 'slug', 'description_services', 'photo_services'\
-                  , 'category', 'category__title', 'category__slug',)
+                  , 'category', 'category__title', 'category__slug', )
         return context
 
 
@@ -38,9 +36,9 @@ class ServicesByCategory(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['service'] = ServicesPage.objects.all()
-        context['name_page'] = ServicesCategory.objects\
+        context['name_page'] = ServicesCategory.objects \
             .filter(slug=self.kwargs['slug'])
-        context['next_category'] = ServicesCategory.objects.\
+        context['next_category'] = ServicesCategory.objects. \
             exclude(slug=self.kwargs['slug'])
         return context
 
@@ -86,6 +84,5 @@ class KeysPageItemView(ListView):
         context['keys'] = KeysPage.objects.exclude(slug=self.kwargs['slug'])
         return context
 
-# def index(request):
-#     return render(request, 'blog/index.html')
-# return render(request, 'blog/index.html')
+
+
